@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Github on 晚晚不晚安</title>
+        <link>https://wanwanbu.github.io/categories/github/</link>
+        <description>Recent content in Github on 晚晚不晚安</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>good night</copyright>
+        <lastBuildDate>Thu, 15 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wanwanbu.github.io/categories/github/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>github搭建图床</title>
+        <link>https://wanwanbu.github.io/2024/github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</link>
+        <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://wanwanbu.github.io/2024/github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</guid>
+        <description>&lt;h2 id=&#34;1创建github小号&#34;&gt;1.创建github小号
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;仓库一个公开仓库&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/zheer-mao/tuchuan/main/image-20240815221052588.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240815221052588&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;仓库创建完成获取token&lt;/code&gt;&lt;/p&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/zheer-mao/tuchuan/main/image-20240815221254758.png&#34; style=&#34;zoom:200%;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/zheer-mao/tuchuan/main/image-20240815221416449.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240815221416449&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/zheer-mao/tuchuan/main/image-20240815221441496.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240815221441496&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;生成的token保存好等下使用而且token只显示一次最好写入一个txt文件中。&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;2picgo软件&#34;&gt;2.PicGo软件
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/Molunerfinn/PicGo/releases&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PicGo下载地址&lt;/a&gt;软件下载好打开的样子&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/zheer-mao/tuchuan/main/image-20240815221849346.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240815221849346&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;配置picgo&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/zheer-mao/tuchuan/main/image-20240815221946455.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240815221946455&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/zheer-mao/tuchuan/main/image-20240815222139033.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240815222139033&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;或者在自定义域名添加cdn如：&lt;/code&gt;&lt;a class=&#34;link&#34; href=&#34;https://cdn.staticaly.com.gh/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://cdn.staticaly.com.gh/&lt;/a&gt;用户名/仓库名@分支&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;测试是否上传成功&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/zheer-mao/tuchuan/main/image-20240815222244295.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240815222244295&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;查看github仓库是否有图片&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/zheer-mao/tuchuan/main/image-20240815222448115.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240815222448115&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3typora软件&#34;&gt;3.typora软件
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;设置typora实现自动上传---&amp;gt;文件----&amp;gt;偏好设置----&amp;gt;图像&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/zheer-mao/tuchuan/main/image-20240815222602435.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240815222602435&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这样的配置是将你的截图直接粘贴到typora里面，你的typora就会将链接直接通过PicGo上传到你github仓库中。但是也有缺点就是国内有时候访问不到github导致图片加载不成功。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
