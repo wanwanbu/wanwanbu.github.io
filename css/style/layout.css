@@ -134,17 +134,16 @@ ul {
 =============================================*/
 body.has-background-image {
     position: relative;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
     min-height: 100vh;
     width: 100%;
     overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
+    background-image: inherit;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-/* 使用伪元素处理背景，避免滚动问题 */
 body.has-background-image::before {
     content: '';
     position: fixed;
@@ -154,39 +153,36 @@ body.has-background-image::before {
     bottom: 0;
     z-index: -1;
     background-image: inherit;
-    background-repeat: no-repeat;
     background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh;
+    width: 100%;
     pointer-events: none;
 }
 
 /* 移动端优化 */
 @media screen and (max-width: 768px) {
-    body {
-        padding-top: 30px;
-    }
-
     body.has-background-image {
-        background: none; /* 移除body的背景，完全依赖伪元素 */
+        background-attachment: scroll;
     }
 
     body.has-background-image::before {
-        /* 移动端性能优化 */
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-        transform: translate3d(0, 0, 0);
-        -webkit-transform: translate3d(0, 0, 0);
+        position: fixed;
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        width: 100%;
     }
 }
 
-/* iOS设备特殊处理 */
-@supports (-webkit-touch-callout: none) {
-    body.has-background-image::before {
-        position: absolute;
-        height: calc(100vh + 100px);
-        transform: translateY(-100px);
-        -webkit-transform: translateY(-100px);
-    }
+/* 添加视口控制，防止意外缩放 */
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+    min-zoom: 1.0;
+    max-zoom: 1.0;
+    user-zoom: fixed;
 }
 
 /*=============================================
