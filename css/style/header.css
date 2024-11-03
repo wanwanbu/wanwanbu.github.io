@@ -1,0 +1,180 @@
+/* 1. 导航栏基础样式 */
+.navbar {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.2)
+    );
+    padding: 1rem 0;
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-duration) ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-index-navbar);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    height: var(--navbar-height);
+    will-change: transform;
+}
+
+.navbar-hidden {
+    transform: translateY(-100%);
+}
+
+/* 2. 导航栏内容布局 */
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    height: 100%;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+}
+
+/* 3. 品牌标题样式 */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-duration) ease;
+}
+
+.navbar-brand a:hover {
+    color: var(--link-hover-color);
+}
+
+/* 4. 导航菜单样式 */
+.navbar-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    transition: all var(--transition-duration) ease;
+}
+
+.navbar-item {
+    margin-left: 1.5rem;
+}
+
+.menu-item-content {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-duration) ease;
+    border: 1px solid transparent;
+}
+
+.navbar-item:hover .menu-item-content {
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* 5. 图标样式 */
+.navbar-item .icon {
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--menu-icon-size);
+    height: var(--menu-icon-size);
+    transition: transform var(--transition-duration) ease;
+}
+
+.navbar-item:hover .icon {
+    transform: scale(1.1);
+}
+
+.menu-text {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* 6. 菜单切换按钮 */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    color: var(--primary-color);
+    transition: transform var(--transition-duration) ease;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* 7. 响应式设计 */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        left: 1rem;
+    }
+
+    .navbar-brand {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 60%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .navbar-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.8)
+        );
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: var(--box-shadow);
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-item {
+        margin: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-item-content {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+        max-width: 50%;
+    }
+
+    .menu-text {
+        font-size: 0.9rem;
+    }
+}

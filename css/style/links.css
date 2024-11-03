@@ -1,0 +1,173 @@
+.content {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 2rem 15px;
+}
+
+.links-description {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.article-list--compact.links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.article-list--compact.links article {
+  background: var(--card-background);
+  border: var(--card-border);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--box-shadow);
+  transition: all var(--transition-duration);
+  overflow: hidden;
+  position: relative;
+  will-change: transform;
+}
+
+.article-list--compact.links article::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--card-shine);
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.article-list--compact.links article:hover::before {
+  left: 100%;
+}
+
+.article-list--compact.links article:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.article-list--compact.links article a {
+  display: block;
+  text-decoration: none;
+  color: var(--text-color);
+  position: relative;
+  z-index: 2;
+}
+
+.article-list--compact.links .columns {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.article-list--compact.links .column {
+  flex: 1;
+}
+
+.article-list--compact.links .column.is-4 {
+  flex: 0 0 120px;
+  margin-left: 1rem;
+}
+
+.article-details {
+  flex: 1;
+}
+
+.article-details .subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.article-details .content {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.article-image {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+.article-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-duration);
+}
+
+.article-list--compact.links article:hover .article-image img {
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 1024px) {
+  .article-list--compact.links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .article-list--compact.links {
+    gap: 0.75rem;
+  }
+  
+  .article-list--compact.links .columns {
+    padding: 0.75rem;
+  }
+  
+  .article-list--compact.links .column.is-4 {
+    flex: 0 0 80px;
+    margin-left: 0.75rem;
+  }
+  
+  .article-details .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .article-image {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .article-list--compact.links {
+    grid-template-columns: 1fr;
+  }
+  
+  .article-list--compact.links .column.is-4 {
+    flex: 0 0 70px;
+  }
+  
+  .article-image {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .article-details .subtitle {
+    font-size: 1rem;
+  }
+  
+  .article-details .content {
+    font-size: 0.85rem;
+  }
+  
+  .article-list--compact.links .column.is-4 {
+    flex: 0 0 60px;
+    margin-left: 0.5rem;
+  }
+  
+  .article-image {
+    width: 60px;
+    height: 60px;
+  }
+}

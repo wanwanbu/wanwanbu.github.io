@@ -1,0 +1,115 @@
+/* 1. 容器基础样式 */
+.photos-container {
+    padding: 2rem 0;
+    min-height: 50vh;
+}
+
+/* 2. 照片网格布局 */
+.page-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+
+/* 3. 照片卡片样式 */
+.photo-card {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all var(--transition-duration);
+    will-change: transform;
+    aspect-ratio: 4/3;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 4. 图片容器 */
+.photo-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 5. 图片样式 */
+.photo-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-duration);
+    will-change: transform;
+    opacity: 0;
+    transform: scale(1.05);
+}
+
+.photo-image img.loaded {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* 6. 悬停效果 */
+.photo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.photo-card:hover img.loaded {
+    transform: scale(1.1);
+}
+
+/* 7. 标题样式 */
+.photo-card figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0)
+    );
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform var(--transition-duration) ease;
+}
+
+.photo-card:hover figcaption {
+    transform: translateY(0);
+}
+
+/* 8. 响应式设计 */
+@media screen and (max-width: 1024px) {
+    .page-photos {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .page-photos {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 0.8rem;
+        padding: 1rem 0;
+    }
+
+    .photo-card figcaption {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .page-photos {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .photo-card figcaption {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+}
