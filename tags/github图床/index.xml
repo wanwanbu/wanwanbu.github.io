@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Github图床 on 晚晚不晚安</title>
-    <link>https://wanwanbu.githun.io/tags/github%E5%9B%BE%E5%BA%8A/</link>
+    <link>https://wanwanbu.github.io/tags/github%E5%9B%BE%E5%BA%8A/</link>
     <description>Recent content in Github图床 on 晚晚不晚安</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 15 Aug 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://wanwanbu.githun.io/tags/github%E5%9B%BE%E5%BA%8A/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://wanwanbu.github.io/tags/github%E5%9B%BE%E5%BA%8A/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>github搭建图床</title>
-      <link>https://wanwanbu.githun.io/2024/08/github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</link>
+      <link>https://wanwanbu.github.io/2024/08/github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</link>
       <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://wanwanbu.githun.io/2024/08/github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</guid>
+      <guid>https://wanwanbu.github.io/2024/08/github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</guid>
       <description>GitHub+PicGo+typora+CDN</description>
     </item>
   </channel>

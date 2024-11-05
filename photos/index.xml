@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>我的照片 on 晚晚不晚安</title>
-    <link>https://wanwanbu.githun.io/photos/</link>
+    <link>https://wanwanbu.github.io/photos/</link>
     <description>Recent content in 我的照片 on 晚晚不晚安</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <atom:link href="https://wanwanbu.githun.io/photos/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://wanwanbu.github.io/photos/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

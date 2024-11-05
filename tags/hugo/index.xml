@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on 晚晚不晚安</title>
-    <link>https://wanwanbu.githun.io/tags/hugo/</link>
+    <link>https://wanwanbu.github.io/tags/hugo/</link>
     <description>Recent content in Hugo on 晚晚不晚安</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 21 Aug 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://wanwanbu.githun.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://wanwanbu.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>博客发布</title>
-      <link>https://wanwanbu.githun.io/2024/08/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/</link>
+      <link>https://wanwanbu.github.io/2024/08/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/</link>
       <pubDate>Wed, 21 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://wanwanbu.githun.io/2024/08/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/</guid>
+      <guid>https://wanwanbu.github.io/2024/08/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/</guid>
       <description>GitHub自动发布和添加评论系统</description>
     </item>
     <item>
       <title>博客</title>
-      <link>https://wanwanbu.githun.io/2024/08/%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://wanwanbu.github.io/2024/08/%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://wanwanbu.githun.io/2024/08/%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://wanwanbu.github.io/2024/08/%E5%8D%9A%E5%AE%A2/</guid>
       <description>博客搭建过程</description>
     </item>
   </channel>

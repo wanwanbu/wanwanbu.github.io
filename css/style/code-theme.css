@@ -176,26 +176,6 @@
     z-index: 3;
 }
 
-/* 语言标识 - 居中显示，更加醒目 */
-.highlight[data-lang]::before {
-    content: attr(data-lang);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    color: #d4d4d4;
-    font-size: 0.85em;
-    font-family: var(--code-font);
-    font-weight: bold;
-    background: #21252b;
-    padding: 0.3em 0;
-    border-bottom: 1px solid #181a1f;
-    z-index: 2;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
 /* 删除代码块工具栏 */
 .highlight-buttons {
     position: absolute;

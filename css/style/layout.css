@@ -13,14 +13,14 @@
     --border-color: rgba(255, 255, 255, 0.2);
     
     /* 背景和卡片 */
-    --card-background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.3));
-    --card-border: 1px solid rgba(255, 255, 255, 0.2);
-    --card-shine: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    --card-background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.8));
+    --card-border: 1px solid rgba(255, 255, 255, 0.5);
+    --card-shine: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
     
     /* 阴影效果 */
-    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    --box-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.2);
-    --text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    --box-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.5);
+    --text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     
     /* 动画和过渡 */
     --transition-duration: 0.3s;
@@ -71,7 +71,7 @@
 }
 
 body {
-    color: var(--text-color, #1a1a1a);
+    color: var(--text-color);
     font-family: var(--font-family-base);
     line-height: var(--line-height-base);
     font-size: var(--font-size-base);
@@ -337,5 +337,47 @@ img.lazy.loaded {
     }
     100% {
         background-position: -200% 0;
+    }
+}
+
+.main-container {
+    padding-top: 2rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.home {
+    padding: 1rem;
+}
+
+.home .title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .main-container {
+        padding-top: 1rem;
+    }
+    
+    .home {
+        padding: 0.5rem;
+    }
+    
+    .home .title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-container {
+        padding-top: 0.5rem;
+    }
+    
+    .home .title {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
     }
 }

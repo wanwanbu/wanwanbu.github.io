@@ -13,6 +13,7 @@
     transition: transform var(--transition-duration);
     will-change: transform;
     box-shadow: var(--box-shadow);
+    animation: fadeIn 0.5s ease-out;
 }
 
 .content.has-text-centered:hover {
@@ -26,6 +27,7 @@
     color: var(--primary-color);
     margin-bottom: 1rem;
     font-weight: 600;
+    text-shadow: var(--text-shadow);
 }
 
 .content.has-text-centered .subtitle {
@@ -49,11 +51,25 @@
     border-radius: var(--border-radius);
     font-size: 1rem;
     transition: all var(--transition-duration) ease;
+    box-shadow: var(--box-shadow);
 }
 
 .content.has-text-centered .button.is-primary:hover {
     background-color: var(--link-hover-color);
     transform: translateY(-2px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* 响应式设计 */
@@ -85,5 +101,10 @@
 
     .content.has-text-centered .title.is-1 {
         font-size: 2.5rem;
+    }
+
+    .button.is-primary {
+        width: 100%;
+        padding: 0.6em 1em;
     }
 }

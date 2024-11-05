@@ -13,18 +13,35 @@ document.addEventListener('DOMContentLoaded', () => {
         async copyCode(code, button) {
             try {
                 await navigator.clipboard.writeText(code);
+                const originalText = button.textContent;
                 button.textContent = '已复制!';
-                setTimeout(() => button.textContent = '复制', 2000);
+                button.style.background = 'rgba(var(--primary-color-rgb), 0.2)';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = 'rgba(255, 255, 255, 0.1)';
+                }, 2000);
             } catch (err) {
                 console.error('复制失败:', err);
                 button.textContent = '复制失败';
-                setTimeout(() => button.textContent = '复制', 2000);
+                button.style.background = 'rgba(255, 56, 96, 0.2)';
+                
+                setTimeout(() => {
+                    button.textContent = '复制';
+                    button.style.background = 'rgba(255, 255, 255, 0.1)';
+                }, 2000);
             }
         },
 
         toggleFold(block, button) {
             block.classList.toggle('folded');
-            button.textContent = block.classList.contains('folded') ? '展开' : '折叠';
+            if (block.classList.contains('folded')) {
+                button.textContent = '展开';
+                block.querySelector('pre').style.maxHeight = '200px';
+            } else {
+                button.textContent = '折叠';
+                block.querySelector('pre').style.maxHeight = block.querySelector('pre').scrollHeight + 'px';
+            }
         },
 
         initializeCodeBlock(block) {

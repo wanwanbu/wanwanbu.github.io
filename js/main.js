@@ -7,7 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if ('loading' in HTMLImageElement.prototype) {
                     images.forEach(img => {
-                        img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
+                        img.addEventListener('load', () => {
+                            img.classList.add('loaded');
+                            img.style.animation = 'fadeIn 0.5s ease-out';
+                        }, { once: true });
                     });
                 } else {
                     const imageObserver = new IntersectionObserver(
@@ -16,7 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
                                 if (entry.isIntersecting) {
                                     const img = entry.target;
                                     img.src = img.src;
-                                    img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
+                                    img.addEventListener('load', () => {
+                                        img.classList.add('loaded');
+                                        img.style.animation = 'fadeIn 0.5s ease-out';
+                                    }, { once: true });
                                     observer.unobserve(img);
                                 }
                             });
@@ -106,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const toggleMenu = () => {
                     navbarMenu.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
                 };
 
                 menuToggle.addEventListener('click', toggleMenu);
@@ -118,12 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
 
-                navbarMenu.addEventListener('click', () => {
-                    if (window.innerWidth <= 768 && navbarMenu.classList.contains('active')) {
-                        toggleMenu();
-                    }
-                });
-
                 window.addEventListener('scroll', () => {
                     const now = Date.now();
                     if (now - lastExecutionTime >= THROTTLE_DELAY) {
@@ -131,6 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         
                         if (currentScrollTop > lastScrollTop && currentScrollTop > SCROLL_THRESHOLD) {
                             navbar.classList.add('navbar-hidden');
+                            if (navbarMenu.classList.contains('active')) {
+                                toggleMenu();
+                            }
                         } else if (currentScrollTop < lastScrollTop && navbar.classList.contains('navbar-hidden')) {
                             navbar.classList.remove('navbar-hidden');
                         }

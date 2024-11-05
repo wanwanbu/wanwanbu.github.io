@@ -32,17 +32,23 @@
 /* 3. 年份卡片 */
 .archive-year {
     margin-bottom: 1.5rem;
-    background: var(--card-background);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.2)
+    );
     border-radius: var(--card-border-radius);
     overflow: hidden;
-    border: var(--card-border);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: var(--box-shadow);
     transition: all var(--transition-duration) ease;
     animation: slideInFromRight 0.5s ease-out;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .archive-year:hover {
-    transform: translateY(-2px);
+    transform: translateY(-5px);
     box-shadow: var(--box-shadow-hover);
 }
 
@@ -52,7 +58,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1.5rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(var(--primary-color-rgb), 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -76,6 +82,7 @@
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--primary-color);
+    text-shadow: var(--text-shadow);
 }
 
 .toggle-button {
@@ -112,16 +119,25 @@
     align-items: center;
     padding: 0.75rem;
     margin-bottom: 0.5rem;
-    background: var(--card-background);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.1)
+    );
     border-radius: var(--border-radius);
     transition: all var(--transition-duration) ease;
-    border: var(--card-border);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     animation: fadeInUp 0.3s ease-out;
 }
 
 .archive-item:hover {
     transform: translateX(5px);
-    box-shadow: var(--box-shadow-hover);
+    box-shadow: var(--box-shadow);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.2)
+    );
 }
 
 .archive-item-main {
@@ -173,12 +189,8 @@
 
 /* 8. 动画效果 */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes slideInFromRight {

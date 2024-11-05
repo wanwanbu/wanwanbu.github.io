@@ -2,6 +2,7 @@
 .photos-container {
     padding: 2rem 0;
     min-height: 50vh;
+    animation: fadeIn 0.5s ease-out;
 }
 
 /* 2. 照片网格布局 */
@@ -23,6 +24,8 @@
     will-change: transform;
     aspect-ratio: 4/3;
     background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 /* 4. 图片容器 */
@@ -75,13 +78,26 @@
     text-align: center;
     transform: translateY(100%);
     transition: transform var(--transition-duration) ease;
+    text-shadow: var(--text-shadow);
 }
 
 .photo-card:hover figcaption {
     transform: translateY(0);
 }
 
-/* 8. 响应式设计 */
+/* 8. 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 9. 响应式设计 */
 @media screen and (max-width: 1024px) {
     .page-photos {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
