@@ -1,0 +1,110 @@
+/* 404页面容器 */
+.content.has-text-centered {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.2)
+    );
+    border-radius: var(--card-border-radius);
+    text-align: center;
+    transition: transform var(--transition-duration);
+    will-change: transform;
+    box-shadow: var(--box-shadow);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.content.has-text-centered:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+/* 标题和文本样式 */
+.content.has-text-centered .title.is-1 {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-shadow: var(--text-shadow);
+}
+
+.content.has-text-centered .subtitle {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.content.has-text-centered p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+/* 按钮样式 */
+.content.has-text-centered .button.is-primary {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8em 2em;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: all var(--transition-duration) ease;
+    box-shadow: var(--box-shadow);
+}
+
+.content.has-text-centered .button.is-primary:hover {
+    background-color: var(--link-hover-color);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+    .content.has-text-centered {
+        max-width: 95%;
+        margin: 2rem auto;
+        padding: 1.5rem;
+    }
+
+    .content.has-text-centered .title.is-1 {
+        font-size: 3rem;
+    }
+
+    .content.has-text-centered .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .content.has-text-centered p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content.has-text-centered {
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+
+    .content.has-text-centered .title.is-1 {
+        font-size: 2.5rem;
+    }
+
+    .button.is-primary {
+        width: 100%;
+        padding: 0.6em 1em;
+    }
+}

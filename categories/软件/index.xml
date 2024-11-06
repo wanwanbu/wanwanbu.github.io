@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>软件 on 晚晚不晚安</title>
+    <link>https://wanwanbu.github.io/categories/%E8%BD%AF%E4%BB%B6/</link>
+    <description>Recent content in 软件 on 晚晚不晚安</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 16 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://wanwanbu.github.io/categories/%E8%BD%AF%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git</title>
+      <link>https://wanwanbu.github.io/2024/08/git/</link>
+      <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://wanwanbu.github.io/2024/08/git/</guid>
+      <description>git使用和安装</description>
+    </item>
+  </channel>
+</rss>

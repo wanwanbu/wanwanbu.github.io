@@ -1,0 +1,273 @@
+/* 1. 侧边栏基础样式 */
+.sidebar {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    position: sticky;
+    top: calc(var(--navbar-height) + 1rem);
+    overflow-y: visible;
+    will-change: transform;
+    text-align: center;
+}
+
+/* 2. 卡片基础样式 */
+.sidebar .transparent-card {
+    margin-bottom: 1rem;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.3)
+    );
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 第一个卡片不需要顶部间距 */
+.sidebar .transparent-card:first-child {
+    margin-top: 0;
+}
+
+/* 最后一个卡片不需要底部间距 */
+.sidebar .transparent-card:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar .transparent-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+/* 3. 卡片光效果 */
+.sidebar .transparent-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.sidebar .transparent-card:hover::before {
+    left: 100%;
+}
+
+/* 3. 头像样式 */
+.sidebar .image.is-128x128 {
+    margin: 0 auto 1.5rem;
+    text-align: center;
+    position: relative;
+    width: 128px;
+    height: 128px;
+}
+
+.sidebar .image.is-128x128 img {
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+    transition: transform var(--transition-duration);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none; /* 禁止图片交互 */
+}
+
+.sidebar .image.is-128x128 img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(50, 115, 220, 0.5);
+}
+
+.sidebar .image.is-128x128::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, transparent 60%, rgba(50, 115, 220, 0.1));
+    pointer-events: none;
+}
+
+/* 4. 标题样式 */
+.sidebar .title.is-6 {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+}
+
+.sidebar .title.is-5 {
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+/* 5. 菜单列表样式 */
+.sidebar .menu-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar .menu-list li {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    position: relative;
+}
+
+.sidebar .menu-list li a {
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-duration);
+    padding: var(--menu-item-padding);
+}
+
+/* 添加点的样式 */
+.sidebar .menu-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.sidebar .menu-list li:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.sidebar .menu-list li a:hover {
+    color: var(--link-hover-color);
+}
+
+/* 调整图标样式 */
+.sidebar .menu-list li a .icon {
+    margin-right: 0.5rem;
+    width: var(--menu-icon-size);
+    height: var(--menu-icon-size);
+}
+
+.sidebar .menu-text {
+    flex: 1;
+    font-size: 0.95rem;
+}
+
+/* 6. 菜单交互状态 */
+.sidebar .menu-list li a:hover,
+.sidebar .menu-list li a.is-active {
+    background-color: rgba(50, 115, 220, 0.1);
+}
+
+.sidebar .menu-list li a:hover .menu-icon svg,
+.sidebar .menu-list li a.is-active .menu-icon svg {
+    transform: scale(1.1);
+    color: var(--link-hover-color); /* 悬停时变为深色 */
+}
+
+.sidebar .menu-list li a:hover .menu-text,
+.sidebar .menu-list li a.is-active .menu-text {
+    color: var(--link-hover-color); /* 悬停时文字也变为深色 */
+}
+
+/* 7. 最近文章样式 */
+.sidebar .recent-posts {
+    text-align: center;
+}
+
+.sidebar .recent-posts ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar .recent-posts ul li {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.sidebar .recent-posts ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-duration);
+}
+
+.sidebar .recent-posts ul li a:hover {
+    color: var(--link-hover-color);
+}
+
+/* 8. 最近文章样式 */
+.sidebar .recent-posts ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.sidebar .recent-posts ul li:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 10. 响应式样式 */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        top: 0;
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .sidebar .transparent-card {
+        margin-bottom: 1rem;
+        padding: 1.5rem;
+    }
+
+    .sidebar .image.is-128x128 {
+        width: 96px;
+        height: 96px;
+    }
+
+    .sidebar .menu-list li a {
+        padding: 0.75rem;
+    }
+
+    .sidebar .recent-posts ul {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .sidebar .transparent-card {
+        padding: 1rem;
+    }
+
+    .sidebar .image.is-128x128 {
+        width: 80px;
+        height: 80px;
+    }
+
+    .sidebar .title {
+        &.is-5 { font-size: 1.1rem; }
+        &.is-6 { font-size: 0.9rem; }
+    }
+}
