@@ -22,6 +22,13 @@
     word-wrap: break-word;
 }
 
+.article-header {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
 /* 3. 文章标题 */
 .article-title {
     font-size: 2.5rem;
@@ -84,6 +91,67 @@
     background: var(--primary-color);
     color: white;
     transform: translateY(-2px);
+}
+
+/* 评论 */
+.article-comments {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+/* 上下篇 */
+.article-nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    gap: 2rem;
+}
+
+.nav-previous, .nav-next {
+    flex: 1;
+    max-width: 50%;
+}
+
+.nav-previous a, .nav-next a {
+    display: block;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: all var(--transition-duration) ease;
+}
+
+.nav-previous a:hover, .nav-next a:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
+    box-shadow: var(--box-shadow);
+}
+
+.nav-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-color-light);
+    margin-bottom: 0.5rem;
+}
+
+.nav-title {
+    display: block;
+    font-size: 1rem;
+    color: var(--primary-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.nav-next {
+    text-align: right;
 }
 
 /* 6. 目录侧边栏 */
@@ -474,6 +542,18 @@
 
     .article-body th {
         white-space: nowrap;
+    }
+
+    .article-nav {
+        flex-direction: column;
+    }
+    
+    .nav-previous, .nav-next {
+        max-width: 100%;
+    }
+    
+    .nav-next {
+        text-align: left;
     }
 }
 

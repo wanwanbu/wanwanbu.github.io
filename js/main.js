@@ -226,6 +226,13 @@
                 handleExternalLinks() {
                     const currentHostname = window.location.hostname;
                     document.querySelectorAll('a[href^="http"]').forEach(link => {
+                        const isNavLink = link.closest('.nav-previous, .nav-next');
+                        if (isNavLink) {
+                            link.setAttribute('target', '_self');
+                            return;
+                        }
+                        
+                        // 处理其他链接
                         if (!link.href.includes(currentHostname) && 
                             !link.href.includes('/categories/') && 
                             !link.href.includes('/tags/') &&
