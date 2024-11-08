@@ -191,17 +191,24 @@
 
                 handleExternalLinks() {
                     const currentHostname = window.location.hostname;
+                    const internalDomains = [
+                        'wanwanbu.github.io',  // GitHub Pages 域名
+                        'wanwanbu.us.kg',      // 你的自定义域名
+                        currentHostname        // 当前域名
+                    ];
+
                     document.querySelectorAll('a[href^="http"]').forEach(link => {
-                        // 检查是否是导航链接或内部链接
-                        const isNavLink = link.closest('.nav-previous, .nav-next');
+                        // 检查是否是内部链接
                         const isInternalLink = 
-                            link.href.includes(currentHostname) || 
+                            internalDomains.some(domain => link.href.includes(domain)) ||
                             link.href.includes('/categories/') || 
                             link.href.includes('/tags/') ||
-                            link.href.includes(window.location.origin);
+                            link.href.includes('/posts/') ||
+                            link.href.startsWith('/') ||
+                            link.href.startsWith('#');
 
-                        if (isNavLink || isInternalLink) {
-                            // 导航链接和内部链接在当前窗口打开
+                        if (isInternalLink) {
+                            // 内部链接在当前窗口打开
                             link.setAttribute('target', '_self');
                         } else {
                             // 外部链接在新窗口打开
