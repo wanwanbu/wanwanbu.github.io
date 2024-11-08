@@ -1,8 +1,6 @@
-// 使用立即执行函数表达式(IIFE)创建独立作用域
 (function() {
     document.addEventListener('DOMContentLoaded', () => {
         const MainApp = {
-            // 配置参数
             config: {
                 scrollThreshold: 300,
                 throttleDelay: 200,
@@ -10,13 +8,11 @@
                 mobileBreakpoint: 768
             },
 
-            // 初始化
             init() {
                 this.initControllers();
                 this.bindEvents();
             },
 
-            // 初始化所有控制器
             initControllers() {
                 this.imageController.init();
                 this.navigationController.init();
@@ -25,7 +21,6 @@
                 this.performanceController.init();
             },
 
-            // 绑定全局事件
             bindEvents() {
                 window.addEventListener('resize', this.debounce(() => {
                     this.handleResize();
@@ -38,70 +33,45 @@
                 });
             },
 
-            // 图片处理控制器
             imageController: {
                 init() {
                     this.setupLazyLoading();
-                    this.handleImageErrors();
                 },
 
                 setupLazyLoading() {
-                    if (!('IntersectionObserver' in window)) {
-                        this.fallbackLazyLoad();
-                        return;
-                    }
-
-                    const imageObserver = new IntersectionObserver(
-                        (entries, observer) => {
-                            entries.forEach(entry => {
-                                if (entry.isIntersecting) {
-                                    const img = entry.target;
-                                    this.loadImage(img);
-                                    observer.unobserve(img);
-                                }
-                            });
-                        },
-                        {
-                            rootMargin: '50px 0px',
-                            threshold: 0.01
-                        }
-                    );
-
-                    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-                        imageObserver.observe(img);
-                    });
-                },
-
-                loadImage(img) {
-                    img.addEventListener('load', () => {
-                        img.classList.add('loaded');
-                        img.style.animation = 'fadeIn 0.5s ease-out';
-                    }, { once: true });
-
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                    }
-                },
-
-                handleImageErrors() {
                     document.querySelectorAll('img').forEach(img => {
-                        img.addEventListener('error', () => {
-                            img.src = '/img/error.jpg';
-                            img.classList.add('error');
-                        });
-                    });
-                },
+                        // 添加 loading="lazy" 属性让浏览器原生支持懒加载
+                        img.loading = 'lazy';
+                        
+                        // 错误处理和备用方案
+                        img.onerror = () => {
+                            if (img.src.includes('cdn.jsdelivr.net/gh')) {
+                                // CDN 失败直接使用 GitHub raw
+                                const rawSrc = img.src.replace('cdn.jsdelivr.net/gh', 'raw.githubusercontent.com');
+                                console.warn(`CDN加载失败，使用GitHub源站: ${rawSrc}`);
+                                img.src = rawSrc;
+                                
+                                // 为 GitHub raw 链接添加错误处理
+                                img.onerror = () => {
+                                    console.error('GitHub源站也失败，使用错误图片');
+                                    img.src = '/img/error.jpg';
+                                    img.classList.add('error');
+                                };
+                            } else {
+                                console.error('图片加载失败:', img.src);
+                                img.src = '/img/error.jpg';
+                                img.classList.add('error');
+                            }
+                        };
 
-                fallbackLazyLoad() {
-                    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                        }
+                        // 添加加载成功的处理
+                        img.onload = () => {
+                            img.classList.add('loaded');
+                        };
                     });
                 }
             },
 
-            // 导航控制器
             navigationController: {
                 init() {
                     this.navbar = document.querySelector('.navbar');
@@ -158,7 +128,6 @@
                 }
             },
 
-            // 滚动控制器
             scrollController: {
                 init() {
                     this.setupBackToTop();
@@ -194,13 +163,11 @@
                             e.preventDefault();
                             const href = anchor.getAttribute('href');
                             
-                            // 检查href是否只包含#或为空
                             if (href === '#' || !href) return;
                             
                             try {
                                 const target = document.querySelector(href);
                                 if (target) {
-                                    // 添加滚动偏移量补偿导航栏高度
                                     const navHeight = document.querySelector('.navbar')?.offsetHeight || 0;
                                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
                                     
@@ -217,7 +184,6 @@
                 }
             },
 
-            // 链接控制器
             linkController: {
                 init() {
                     this.handleExternalLinks();
@@ -226,27 +192,26 @@
                 handleExternalLinks() {
                     const currentHostname = window.location.hostname;
                     document.querySelectorAll('a[href^="http"]').forEach(link => {
+                        // 检查是否是导航链接或内部链接
                         const isNavLink = link.closest('.nav-previous, .nav-next');
-                        if (isNavLink) {
+                        const isInternalLink = 
+                            link.href.includes(currentHostname) || 
+                            link.href.includes('/categories/') || 
+                            link.href.includes('/tags/') ||
+                            link.href.includes(window.location.origin);
+
+                        if (isNavLink || isInternalLink) {
+                            // 导航链接和内部链接在当前窗口打开
                             link.setAttribute('target', '_self');
-                            return;
-                        }
-                        
-                        // 处理其他链接
-                        if (!link.href.includes(currentHostname) && 
-                            !link.href.includes('/categories/') && 
-                            !link.href.includes('/tags/') &&
-                            !link.href.includes(window.location.origin)) {
+                        } else {
+                            // 外部链接在新窗口打开
                             link.setAttribute('target', '_blank');
                             link.setAttribute('rel', 'noopener noreferrer');
-                        } else {
-                            link.setAttribute('target', '_self');
                         }
                     });
                 }
             },
 
-            // 性能控制器
             performanceController: {
                 init() {
                     this.setupIntersectionObserver();
@@ -273,14 +238,12 @@
                 },
 
                 deferNonCriticalResources() {
-                    // 延迟加载字体
                     if ('fonts' in document) {
                         document.fonts.ready.then(() => {
                             document.documentElement.classList.add('fonts-loaded');
                         });
                     }
 
-                    // 延迟加载非关键CSS
                     const loadDeferredStyles = () => {
                         document.querySelectorAll('link[rel="preload"][as="style"]').forEach(link => {
                             link.rel = 'stylesheet';
@@ -306,7 +269,6 @@
                 }
             },
 
-            // 工具方法
             debounce(func, wait) {
                 let timeout;
                 return function executedFunction(...args) {
@@ -320,7 +282,6 @@
             },
 
             handleResize() {
-                // 处理窗口大小变化
                 if (window.innerWidth > MainApp.config.mobileBreakpoint) {
                     this.navigationController.navbarMenu?.classList.remove('active');
                     this.navigationController.menuToggle?.classList.remove('active');
@@ -328,16 +289,12 @@
             },
 
             handleVisibilityChange() {
-                // 处理页面可见性变化
                 if (document.hidden) return;
-                
-                // 重新初始化一些功能
                 this.imageController.setupLazyLoading();
                 this.performanceController.setupIntersectionObserver();
             }
         };
 
-        // 启动应用
         MainApp.init();
     });
 })();
